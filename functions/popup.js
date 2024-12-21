@@ -1,4 +1,22 @@
+/*
+*
+* @author Emile Z.
+*
+*/
+
+/*
+*
+* Constant parameter language
+*
+*/
+
 const language = (navigator.language || navigator.userLanguage).substr(0, 2);
+
+/*
+*
+* Yes or No Dialog Box
+*
+*/
 
 function PopUpRadio() {
 

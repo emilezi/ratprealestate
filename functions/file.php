@@ -1,7 +1,17 @@
 <?php
-
+/**
+    * File management class.
+    *
+    * @author Emile Z.
+    */
 class File{
 
+    /**
+        * Checks if a location is writable
+        *
+        * @return boolean if a location is writable
+        *
+        */
     public function CheckWriteability(){
         if(file_put_contents("test.txt",'test') == TRUE){
 
@@ -16,6 +26,10 @@ class File{
         }
     }
 
+    /**
+        * Uploads reset method
+        *
+        */
     public function UploadsReset(){
 
         $folder1 = "uploads/procedures/";
@@ -63,6 +77,14 @@ class File{
 
     }
 
+    /**
+        * Check if the selected document have a valid import format
+        *
+        * @param array file information
+        *
+        * @return int if file can be imported else return error
+        *
+        */
     public function CheckPDF($files){
 
         if(!empty($files['pdf']['name']))
@@ -104,12 +126,28 @@ class File{
     
     }
 
+    /**
+        * Import document method
+        *
+        * @param array file information
+        *
+        * @param string id file
+        *
+        */
     public function ImportPDF($files,$id){
 
         move_uploaded_file($files["pdf"]["tmp_name"], "uploads/procedures/" . $id . ".pdf");
 
     }
 
+    /**
+        * Check if the selected picture have a valid import format
+        *
+        * @param array file information
+        *
+        * @return int if file can be imported else return error
+        *
+        */
     public function CheckPicture($files){
 
         if(!empty($files['picture']['name']))
@@ -151,6 +189,12 @@ class File{
     
     }
 
+    /**
+        * Import picture method
+        *
+        * @param array file information
+        *
+        */
     public function ImportPicture($files){
 
         $id = md5(microtime(TRUE)*100000);
@@ -161,6 +205,14 @@ class File{
 
     }
 
+    /**
+        * Check if the selected video have a valid import format
+        *
+        * @param array file information
+        *
+        * @return int if file can be imported else return error
+        *
+        */
     public function CheckVideo($files){
 
         if(!empty($files['video']['name']))
@@ -202,6 +254,12 @@ class File{
     
     }
 
+    /**
+        * Import video method
+        *
+        * @param array file information
+        *
+        */
     public function ImportVideo($files){
 
         $id = md5(microtime(TRUE)*100000);
@@ -212,6 +270,14 @@ class File{
 
     }
 
+    /**
+        * Move the selected files to the tutorials directory
+        *
+        * @param array post information
+        *
+        * @param string id directory
+        *
+        */
     public function MoveUpload($post,$id){
 
         $folder = "uploads/temps/";
@@ -243,6 +309,10 @@ class File{
 
     }
 
+    /**
+        * Delete temps method
+        *
+        */
     public function deleteTemps(){
 
         $folder = "uploads/temps/";
@@ -269,6 +339,12 @@ class File{
 
     }
 
+    /**
+        * Delete tutoriel method
+        *
+        * @param string id tutoriel directory
+        *
+        */
     public function deleteTutoriel($id){
 
         if($open = opendir("uploads/tutoriels/".$id."/"))
@@ -284,6 +360,12 @@ class File{
 
     }
 
+    /**
+        * Delete procedure method
+        *
+        * @param string id procedure
+        *
+        */
     public function deleteProcedure($id){
 
         unlink("uploads/procedures/".$id.".pdf");

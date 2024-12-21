@@ -1,7 +1,23 @@
 <?php
-
+/**
+    * Tutoriel management class.
+    *
+    * @author Emile Z.
+    */
 class Tutoriel{
 
+    /**
+        * New tutoriel method
+        *
+        * @param Object database connection
+        *
+        * @param array post information
+        *
+        * @param string elements information
+        *
+        * @param string id information
+        *
+        */
     public function addTutoriel($db,$post,$elements,$id){
 
         $q1 = $db->prepare("INSERT INTO tutoriel(sujet,categorie,elements,id_tuto) VALUES(:sujet,:categorie,:elements,:id_tuto)");
@@ -25,6 +41,14 @@ class Tutoriel{
 
     }
 
+    /**
+        * Delete tutoriel method
+        *
+        * @param Object database connection
+        *
+        * @param string id information
+        *
+        */
     public function deleteTutoriel($db,$id){
 
         $q1 = $db->prepare("DELETE FROM `tutoriel` WHERE id_tuto=:id_tuto");

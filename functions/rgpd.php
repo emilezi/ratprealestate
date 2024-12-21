@@ -1,5 +1,9 @@
 <?php
-
+/**
+    * RGPD management class.
+    *
+    * @author Emile Z.
+    */
 class RGPD{
 
     public function RGPDacceptance($IP,$db) {

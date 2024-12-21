@@ -1,7 +1,19 @@
 <?php
-
+/**
+    * Post management class.
+    *
+    * @author Emile Z.
+    */
 class Post{
 
+    /**
+        * New post method
+        *
+        * @param Object database connection
+        *
+        * @param array post information
+        *
+        */
     public function newPost($db,$post) {
 
         $q = $db->prepare("INSERT INTO new(sujet,elements,id_new) VALUES (:sujet,:elements,:id_new)");
@@ -13,6 +25,14 @@ class Post{
 
     }
 
+    /**
+        * Delete post method
+        *
+        * @param Object database connection
+        *
+        * @param string id post
+        *
+        */
     public function deletePost($db,$id) {
 
         $q = $db->prepare("DELETE FROM `new` WHERE id_new=:id_new");

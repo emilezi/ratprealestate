@@ -1,7 +1,17 @@
 <?php
-
+/**
+    * IP management class.
+    *
+    * @author Emile Z.
+    */
 class IP{
 
+    /**
+        * Get the connection ip address
+        *
+        * @return string ip address
+        *
+        */
     public function getIp() {
 
         if (isset($_SERVER['HTTP_X_FORWARDED_FOR']))
@@ -13,6 +23,12 @@ class IP{
 
     }
 
+    /**
+        * Get the machine information
+        *
+        * @return string machine information
+        *
+        */
     public function getMachine() {
 
         $useragent = $_SERVER['HTTP_USER_AGENT'];
@@ -30,6 +46,12 @@ class IP{
 
     }
 
+    /**
+        * Get the agent information
+        *
+        * @return string agent information
+        *
+        */
     public function getAgent() {
 
         $useragent = $_SERVER['HTTP_USER_AGENT'];

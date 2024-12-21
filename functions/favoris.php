@@ -1,7 +1,19 @@
 <?php
-
+/**
+    * Favoris management class.
+    *
+    * @author Emile Z.
+    */
 class Favoris{
 
+    /**
+        * New favorite method
+        *
+        * @param Object database connection
+        *
+        * @param array apps information
+        *
+        */
     public function newFavoris($db,$apps) {
 
         $q1 = $db->prepare("INSERT INTO favoris(matricule,application,link,img,actif) VALUES(:matricule,:application,:link,:img,:actif)");
@@ -15,6 +27,14 @@ class Favoris{
 
     }
 
+    /**
+        * Add favorite method
+        *
+        * @param Object database connection
+        *
+        * @param int id favorite
+        *
+        */
     public function addFavoris($db,$id) {
 
         $q = $db->prepare("UPDATE favoris SET actif=:actif WHERE id=:id");
@@ -25,6 +45,14 @@ class Favoris{
 
     }
 
+    /**
+        * Delete favorite method
+        *
+        * @param Object database connection
+        *
+        * @param int id favorite
+        *
+        */
     public function deleteFavoris($db,$id) {
 
         $q = $db->prepare("UPDATE favoris SET actif=:actif WHERE id=:id");

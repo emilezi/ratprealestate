@@ -1,7 +1,17 @@
 <?php
-
+/**
+    * Mail management class.
+    *
+    * @author Emile Z.
+    */
 class Mail{
 
+    /**
+        * Send email approval of idea method
+        *
+        * @param array post information
+        *
+        */
     public function approveIdea($post) {
 
         $destinataire = $_SESSION['identifiant']."@ratprealestate.com" ;
@@ -16,8 +26,12 @@ class Mail{
 
     }
 
-
-
+    /**
+        * Send email delete idea method
+        *
+        * @param array post information
+        *
+        */
     public function deleteIdea($post) {
 
         $destinataire = $_SESSION['identifiant']."@ratprealestate.com" ;

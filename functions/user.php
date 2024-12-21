@@ -1,7 +1,17 @@
 <?php
-
+/**
+    * User management class.
+    *
+    * @author Emile Z.
+    */
 class User{
 
+    /**
+        * Checking the session information of the active connection
+        *
+        * @return int if the login information of the active user is valid, otherwise return the error
+        *
+        */
     public function UserSession(){
 
         if
@@ -41,6 +51,12 @@ class User{
     
     }
 
+    /**
+        * Checking the session admin information of the active connection
+        *
+        * @return int if the login information of the active user is valid, otherwise return the error
+        *
+        */
     public function UserSessionAdmin($group_admin){
 
         if
@@ -82,6 +98,16 @@ class User{
     
     }
 
+    /**
+        * User session creation
+        *
+        * @param Object database connection
+        *
+        * @param array form login
+        *
+        * @return int if the information entered is valid create the session, otherwise return the corresponding error
+        *
+        */
     public function UserLogin($db,$post){
 
         if(($post['identifiant'] == "administrateur") && ($post['password'] == "password")){

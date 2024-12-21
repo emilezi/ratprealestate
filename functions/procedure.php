@@ -1,7 +1,21 @@
 <?php
-
+/**
+    * Procedure management class.
+    *
+    * @author Emile Z.
+    */
 class Procedure{
 
+    /**
+        * New procedure method
+        *
+        * @param Object database connection
+        *
+        * @param array post information
+        *
+        * @param string id information
+        *
+        */
     public function addProcedure($db,$post,$id){
 
         $q1 = $db->prepare("INSERT INTO procedures(sujet,categorie,elements,id_procedure) VALUES(:sujet,:categorie,:elements,:id_procedure)");
@@ -25,6 +39,14 @@ class Procedure{
 
     }
 
+    /**
+        * Delete procedure method
+        *
+        * @param Object database connection
+        *
+        * @param string id information
+        *
+        */
     public function deleteProcedure($db,$id){
 
         $q1 = $db->prepare("DELETE FROM `procedures` WHERE id_procedure=:id_procedure");

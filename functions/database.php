@@ -1,7 +1,17 @@
 <?php
-
+/**
+    * Database management class.
+    *
+    * @author Emile Z.
+    */
 class Database{
 
+    /**
+        * Check database server connection
+        *
+        * @return boolean whether a connection to the database server is possible
+        *
+        */
     public function CheckConnection(){
 
         try{
@@ -19,6 +29,12 @@ class Database{
 
     }
 
+    /**
+        * Database reset method
+        *
+        * @param Object database connection
+        *
+        */
     public function DatabaseReset($db){
 
         $q = $db->prepare("DROP TABLE apps");
@@ -56,6 +72,14 @@ class Database{
 
     }
 
+    /**
+        * Check if tables exist
+        *
+        * @param Object database connection
+        *
+        * @return boolean if the tables exists
+        *
+        */
     public function CheckTables($db){
 
         $q = $db->prepare("SHOW TABLES");
@@ -71,11 +95,17 @@ class Database{
 
     }
 
+    /**
+        * Creation of the tables method
+        *
+        * @param Object database connection
+        *
+        */
     public function addTables($db){
 
         $q = $db->prepare("
             CREATE TABLE `apps` (
-            `id_apps` int(255) NOT NULL,
+            `id_apps` int(11) NOT NULL,
             `nom_apps` varchar(255) NOT NULL,
             `lien_apps` varchar(255) NOT NULL,
             `img` varchar(255) NOT NULL,
